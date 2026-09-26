@@ -1,0 +1,2541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KPop Demon Hunters | HUNTR/X</title>
+
+<style>
+/* =========================================================
+   KPOP DEMON HUNTERS
+   SINGLE FILE WEBSITE
+   HTML + CSS + JAVASCRIPT
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --pink: #ff2d91;
+    --hot-pink: #ff008c;
+    --purple: #8a35ff;
+    --blue: #19d9ff;
+    --dark: #05030b;
+    --dark2: #0d0719;
+    --white: #ffffff;
+    --gray: #aaa4b8;
+    --glass: rgba(255,255,255,0.07);
+    --border: rgba(255,255,255,0.13);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html {
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(255,0,140,.13), transparent 30%),
+        radial-gradient(circle at 90% 30%, rgba(89,35,255,.14), transparent 30%),
+        linear-gradient(180deg,#05030b,#090512,#05030b);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ================= CURSOR ================= */
+
+.cursor {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(
+        circle,
+        rgba(255,45,145,.14),
+        transparent 70%
+    );
+    transform: translate(-50%,-50%);
+    z-index: 0;
+}
+
+/* ================= PARTICLES ================= */
+
+#particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 12px white;
+    animation: particleMove linear infinite;
+}
+
+@keyframes particleMove {
+    0% {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+
+    background: rgba(5,3,11,.75);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.logo {
+    font-family: Orbitron;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--pink);
+    text-shadow: 0 0 15px var(--pink);
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--pink);
+    text-shadow: 0 0 12px var(--pink);
+}
+
+.menu-btn {
+    display: none;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 100vh;
+    padding: 120px 7% 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 750px;
+    height: 750px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,0,140,.17),
+            rgba(117,35,255,.08),
+            transparent 68%
+        );
+
+    animation: heroPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes heroPulse {
+    from {
+        transform: scale(.75);
+    }
+
+    to {
+        transform: scale(1.15);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    max-width: 1050px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 9px 20px;
+    margin-bottom: 25px;
+
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,.18);
+
+    background: rgba(255,255,255,.06);
+    backdrop-filter: blur(15px);
+
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #ddd;
+}
+
+.hero h1 {
+    font-family: Orbitron;
+    font-size: clamp(48px, 9vw, 105px);
+    line-height: .95;
+    font-weight: 900;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ff2d91,
+            #9c4dff,
+            #20dcff,
+            #fff
+        );
+
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    animation: textGradient 6s linear infinite;
+
+    text-shadow: 0 0 40px rgba(255,0,140,.15);
+}
+
+@keyframes textGradient {
+    to {
+        background-position: 300%;
+    }
+}
+
+.hero h2 {
+    margin-top: 20px;
+    color: #ddd;
+    font-weight: 400;
+}
+
+.hero p {
+    max-width: 720px;
+    margin: 25px auto;
+    color: var(--gray);
+    line-height: 1.8;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    border: none;
+    padding: 14px 25px;
+    border-radius: 50px;
+
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px) scale(1.03);
+}
+
+.primary {
+    background: linear-gradient(90deg,var(--pink),var(--purple));
+    box-shadow: 0 0 30px rgba(255,45,145,.3);
+}
+
+.secondary {
+    background: rgba(255,255,255,.06);
+    border: 1px solid var(--border);
+}
+
+/* ================= SECTION ================= */
+
+section {
+    padding: 110px 7%;
+    position: relative;
+    z-index: 2;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 55px;
+}
+
+.section-heading span {
+    color: var(--pink);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.section-heading h2 {
+    font-family: Orbitron;
+    font-size: clamp(30px,5vw,55px);
+    margin-top: 10px;
+}
+
+.section-heading p {
+    color: var(--gray);
+    margin-top: 15px;
+    line-height: 1.7;
+}
+
+/* ================= STATISTICS ================= */
+
+.stats {
+    max-width: 1000px;
+    margin: 30px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+}
+
+.stat {
+    padding: 25px;
+    text-align: center;
+
+    border-radius: 20px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+}
+
+.stat strong {
+    display: block;
+    font-family: Orbitron;
+    font-size: 30px;
+    color: var(--pink);
+}
+
+.stat small {
+    color: var(--gray);
+}
+
+/* ================= STORY ================= */
+
+.story-grid {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 25px;
+}
+
+.story-card {
+    padding: 35px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,45,145,.11),
+            rgba(112,43,255,.08)
+        );
+
+    border: 1px solid var(--border);
+}
+
+.story-card h3 {
+    font-family: Orbitron;
+    font-size: 25px;
+    margin-bottom: 17px;
+}
+
+.story-card p {
+    color: var(--gray);
+    line-height: 1.9;
+}
+
+.story-list {
+    margin-top: 20px;
+    list-style: none;
+}
+
+.story-list li {
+    margin: 12px 0;
+    color: #ddd;
+}
+
+.story-list li::before {
+    content: "✦";
+    color: var(--pink);
+    margin-right: 10px;
+}
+
+/* ================= CHARACTER CARDS ================= */
+
+.characters {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.character {
+    min-height: 430px;
+    padding: 30px;
+
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 30px;
+    border: 1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,45,145,.15),
+            rgba(89,40,255,.08)
+        );
+
+    transition: .45s;
+}
+
+.character:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 70px rgba(255,0,140,.13);
+}
+
+.character::after {
+    content: "";
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    right: -100px;
+    top: -100px;
+
+    border-radius: 50%;
+
+    background: var(--pink);
+    filter: blur(80px);
+    opacity: .25;
+}
+
+.number {
+    font-family: Orbitron;
+    font-size: 60px;
+    color: rgba(255,255,255,.13);
+}
+
+.character-icon {
+    width: 90px;
+    height: 90px;
+
+    margin-top: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 25px;
+
+    font-size: 45px;
+
+    background:
+        linear-gradient(135deg,var(--pink),var(--purple));
+
+    box-shadow: 0 0 35px rgba(255,0,140,.25);
+}
+
+.character h3 {
+    font-family: Orbitron;
+    font-size: 27px;
+    margin-top: 22px;
+}
+
+.role {
+    color: var(--pink);
+    font-size: 13px;
+    font-weight: 700;
+    margin: 5px 0 15px;
+}
+
+.character p {
+    color: var(--gray);
+    line-height: 1.7;
+}
+
+/* ================= DEMON SECTION ================= */
+
+.demon-section {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(117,0,150,.15),
+            transparent 65%
+        );
+}
+
+.demon-box {
+    max-width: 1050px;
+    margin: auto;
+    padding: 60px;
+
+    text-align: center;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,0,100,.09),
+            rgba(76,0,120,.14)
+        );
+
+    border: 1px solid rgba(255,45,145,.2);
+}
+
+.demon-symbol {
+    font-size: 75px;
+    margin-bottom: 20px;
+
+    filter:
+        drop-shadow(0 0 20px #ff008c);
+}
+
+.demon-box h2 {
+    font-family: Orbitron;
+    font-size: 40px;
+}
+
+.demon-box p {
+    max-width: 750px;
+    margin: 20px auto;
+    color: var(--gray);
+    line-height: 1.8;
+}
+
+/* ================= MUSIC ================= */
+
+.music-list {
+    max-width: 900px;
+    margin: auto;
+
+    display: grid;
+    gap: 14px;
+}
+
+.song {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px 22px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.055);
+    border: 1px solid rgba(255,255,255,.08);
+
+    transition: .3s;
+}
+
+.song:hover {
+    transform: translateX(7px);
+    border-color: rgba(255,45,145,.4);
+}
+
+.song-left {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+}
+
+.play {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    border-radius: 50%;
+
+    color: white;
+    cursor: pointer;
+
+    background: linear-gradient(
+        135deg,
+        var(--pink),
+        var(--purple)
+    );
+}
+
+.song-title {
+    font-weight: 700;
+}
+
+.song-artist {
+    color: #8d879b;
+    font-size: 12px;
+}
+
+.song-number {
+    color: #777;
+    font-family: Orbitron;
+}
+
+/* ================= SEARCH ================= */
+
+.search-container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 18px 25px;
+
+    border-radius: 50px;
+    border: 1px solid var(--border);
+
+    outline: none;
+
+    color: white;
+    font-size: 16px;
+
+    background: rgba(255,255,255,.06);
+}
+
+.search-input:focus {
+    border-color: var(--pink);
+    box-shadow: 0 0 25px rgba(255,45,145,.12);
+}
+
+.search-results {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.search-card {
+    padding: 25px;
+
+    border-radius: 20px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+
+    transition: .3s;
+}
+
+.search-card:hover {
+    transform: translateY(-6px);
+}
+
+.search-card .emoji {
+    font-size: 35px;
+}
+
+.search-card h3 {
+    margin: 12px 0 5px;
+}
+
+.search-card p {
+    color: var(--gray);
+    font-size: 13px;
+}
+
+/* ================= QUIZ ================= */
+
+.quiz {
+    max-width: 800px;
+    margin: auto;
+
+    padding: 40px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.055);
+    border: 1px solid var(--border);
+}
+
+.question {
+    display: none;
+}
+
+.question.active {
+    display: block;
+    animation: questionIn .4s ease;
+}
+
+@keyframes questionIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.question h3 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.answer-grid {
+    display: grid;
+    gap: 12px;
+}
+
+.answer {
+    width: 100%;
+    padding: 16px;
+
+    text-align: left;
+
+    border-radius: 15px;
+    border: 1px solid var(--border);
+
+    background: rgba(255,255,255,.04);
+    color: white;
+
+    cursor: pointer;
+    transition: .3s;
+}
+
+.answer:hover {
+    border-color: var(--pink);
+    background: rgba(255,45,145,.1);
+    transform: translateX(5px);
+}
+
+.progress {
+    margin-bottom: 25px;
+    color: #888;
+    font-size: 13px;
+}
+
+.progress-bar {
+    height: 5px;
+    background: rgba(255,255,255,.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 33%;
+    background: linear-gradient(90deg,var(--pink),var(--purple));
+    transition: .4s;
+}
+
+.result {
+    display: none;
+    text-align: center;
+}
+
+.result-icon {
+    font-size: 70px;
+}
+
+.result h2 {
+    font-family: Orbitron;
+    font-size: 40px;
+    color: var(--pink);
+    margin: 15px 0;
+}
+
+.result p {
+    color: var(--gray);
+    line-height: 1.7;
+}
+
+/* ================= MODAL ================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0,0,0,.75);
+    backdrop-filter: blur(12px);
+
+    z-index: 2000;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    width: min(600px,100%);
+    padding: 40px;
+
+    position: relative;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #16091f,
+            #09040f
+        );
+
+    border: 1px solid var(--border);
+
+    box-shadow: 0 30px 100px rgba(0,0,0,.7);
+
+    animation: modalIn .35s ease;
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: scale(.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+
+    background: none;
+    border: none;
+
+    color: white;
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    font-family: Orbitron;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    color: var(--gray);
+    line-height: 1.8;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    padding: 55px 7%;
+    text-align: center;
+
+    border-top: 1px solid rgba(255,255,255,.08);
+
+    color: #777;
+}
+
+footer strong {
+    color: var(--pink);
+}
+
+/* ================= BACK TO TOP ================= */
+
+.top {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+    border: 1px solid var(--border);
+
+    background: rgba(15,8,25,.85);
+    color: white;
+
+    cursor: pointer;
+
+    display: none;
+    z-index: 900;
+}
+
+.top.show {
+    display: block;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px) {
+
+    .characters {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .story-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-results {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width:700px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+
+        display: none;
+        flex-direction: column;
+
+        padding: 25px;
+
+        background: rgba(5,3,11,.97);
+        text-align: center;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    section {
+        padding: 80px 5%;
+    }
+
+    .characters {
+        grid-template-columns: 1fr;
+    }
+
+    .search-results {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .demon-box {
+        padding: 35px 20px;
+    }
+
+    .quiz {
+        padding: 25px 20px;
+    }
+
+    .cursor {
+        display: none;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- PARTICLES -->
+<div id="particles"></div>
+
+<!-- CURSOR GLOW -->
+<div class="cursor"></div>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        KPOP<span>✦</span>DEMON
+    </div>
+
+    <button class="menu-btn" id="menuBtn">
+        ☰
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+
+        <li>
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#story">Story</a>
+        </li>
+
+        <li>
+            <a href="#huntrx">HUNTR/X</a>
+        </li>
+
+        <li>
+            <a href="#music">Music</a>
+        </li>
+
+        <li>
+            <a href="#quiz">Quiz</a>
+        </li>
+
+    </ul>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="tag">
+            ✦ K-POP • FANTASY • DEMON HUNTERS ✦
+        </div>
+
+        <h1>
+            KPOP<br>
+            DEMON HUNTERS
+        </h1>
+
+        <h2>
+            When the stage lights go out, the hunt begins.
+        </h2>
+
+        <p>
+            Enter a neon fantasy universe inspired by
+            KPop Demon Hunters. Explore HUNTR/X, discover
+            the rival Saja Boys, explore the soundtrack,
+            and find out which hunter matches your personality.
+        </p>
+
+        <div class="buttons">
+
+            <a class="btn primary" href="#huntrx">
+                ⚡ Explore HUNTR/X
+            </a>
+
+            <a class="btn secondary" href="#quiz">
+                ✨ Take The Quiz
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STATS ================= -->
+
+<section>
+
+    <div class="section-heading">
+
+        <span>THE UNIVERSE</span>
+
+        <h2>Beyond The Stage</h2>
+
+        <p>
+            A world where music and supernatural adventure
+            exist together.
+        </p>
+
+    </div>
+
+    <div class="stats">
+
+        <div class="stat">
+            <strong>3</strong>
+            <small>HUNTR/X Members</small>
+        </div>
+
+        <div class="stat">
+            <strong>2</strong>
+            <small>Rival Forces</small>
+        </div>
+
+        <div class="stat">
+            <strong>∞</strong>
+            <small>Neon Energy</small>
+        </div>
+
+        <div class="stat">
+            <strong>1</strong>
+            <small>Secret Mission</small>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STORY ================= -->
+
+<section id="story">
+
+    <div class="section-heading">
+
+        <span>THE STORY</span>
+
+        <h2>Two Worlds Collide</h2>
+
+        <p>
+            Behind the glamorous performances is a dangerous
+            supernatural secret.
+        </p>
+
+    </div>
+
+
+    <div class="story-grid">
+
+        <div class="story-card">
+
+            <h3>🎤 Life As Idols</h3>
+
+            <p>
+                HUNTR/X are famous K-pop performers who
+                entertain massive audiences. Their fans see
+                talented stars, powerful performances and
+                unforgettable music.
+            </p>
+
+            <p style="margin-top:18px;">
+                But their lives contain another side that
+                their audience doesn't see.
+            </p>
+
+        </div>
+
+
+        <div class="story-card">
+
+            <h3>⚔️ The Secret Mission</h3>
+
+            <ul class="story-list">
+
+                <li>Protect their fans</li>
+
+                <li>Fight supernatural threats</li>
+
+                <li>Keep their secret hidden</li>
+
+                <li>Stay together as a team</li>
+
+                <li>Keep performing</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HUNTR/X ================= -->
+
+<section id="huntrx">
+
+    <div class="section-heading">
+
+        <span>THE HEROES</span>
+
+        <h2>Meet HUNTR/X</h2>
+
+        <p>
+            Three performers. One team. One supernatural mission.
+        </p>
+
+    </div>
+
+
+    <div class="characters">
+
+        <!-- RUMI -->
+
+        <article class="character">
+
+            <div class="number">
+                01
+            </div>
+
+            <div class="character-icon">
+                👑
+            </div>
+
+            <h3>RUMI</h3>
+
+            <div class="role">
+                LEADER • VOCALIST
+            </div>
+
+            <p>
+                Rumi is the leader of HUNTR/X.
+                She balances the pressure of performing
+                with the responsibility of protecting
+                the team and their fans.
+            </p>
+
+            <br>
+
+            <button
+                class="btn secondary detailsBtn"
+                data-name="Rumi"
+                data-info="Rumi is the leader of HUNTR/X. Her role connects the group's performances with their secret supernatural mission."
+            >
+                View Details
+            </button>
+
+        </article>
+
+
+        <!-- MIRA -->
+
+        <article class="character">
+
+            <div class="number">
+                02
+            </div>
+
+            <div class="character-icon">
+                💜
+            </div>
+
+            <h3>MIRA</h3>
+
+            <div class="role">
+                HUNTR/X MEMBER
+            </div>
+
+            <p>
+                Mira is one of the core members of HUNTR/X.
+                She brings her own style, personality and
+                strength to the team.
+            </p>
+
+            <br>
+
+            <button
+                class="btn secondary detailsBtn"
+                data-name="Mira"
+                data-info="Mira is a member of HUNTR/X who contributes to the team's performances and supernatural adventures."
+            >
+                View Details
+            </button>
+
+        </article>
+
+
+        <!-- ZOEY -->
+
+        <article class="character">
+
+            <div class="number">
+                03
+            </div>
+
+            <div class="character-icon">
+                💙
+            </div>
+
+            <h3>ZOEY</h3>
+
+            <div class="role">
+                HUNTR/X MEMBER
+            </div>
+
+            <p>
+                Zoey is another member of the trio.
+                Her energy helps make HUNTR/X a memorable
+                team both on stage and during their adventures.
+            </p>
+
+            <br>
+
+            <button
+                class="btn secondary detailsBtn"
+                data-name="Zoey"
+                data-info="Zoey is a member of HUNTR/X and part of the trio facing supernatural challenges together."
+            >
+                View Details
+            </button>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DEMONS ================= -->
+
+<section class="demon-section">
+
+    <div class="section-heading">
+
+        <span>THE RIVALS</span>
+
+        <h2>SAJA BOYS</h2>
+
+    </div>
+
+    <div class="demon-box">
+
+        <div class="demon-symbol">
+            😈
+        </div>
+
+        <h2>
+            TOO PERFECT TO BE TRUE?
+        </h2>
+
+        <p>
+            The Saja Boys appear to be a dazzling K-pop
+            boy band. Their charm and popularity make them
+            difficult to ignore — but there is much more
+            behind their public image.
+        </p>
+
+        <button
+            class="btn primary"
+            id="secretBtn"
+        >
+            🔮 Reveal The Secret
+        </button>
+
+        <p
+            id="secretMessage"
+            style="display:none;color:#ff4ba7;font-weight:600;"
+        >
+            ⚠️ Their supernatural identity is finally revealed.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MUSIC ================= -->
+
+<section id="music">
+
+    <div class="section-heading">
+
+        <span>SOUNDTRACK</span>
+
+        <h2>Neon Playlist</h2>
+
+        <p>
+            Explore soundtrack titles associated with the movie.
+            These buttons demonstrate the website's interactive
+            music-player interface.
+        </p>
+
+    </div>
+
+
+    <div class="music-list">
+
+        <div class="song">
+
+            <div class="song-left">
+
+                <button class="play">
+                    ▶
+                </button>
+
+                <div>
+
+                    <div class="song-title">
+                        Golden
+                    </div>
+
+                    <div class="song-artist">
+                        HUNTR/X
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="song-number">
+                01
+            </div>
+
+        </div>
+
+
+        <div class="song">
+
+            <div class="song-left">
+
+                <button class="play">
+                    ▶
+                </button>
+
+                <div>
+
+                    <div class="song-title">
+                        How It's Done
+                    </div>
+
+                    <div class="song-artist">
+                        HUNTR/X
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="song-number">
+                02
+            </div>
+
+        </div>
+
+
+        <div class="song">
+
+            <div class="song-left">
+
+                <button class="play">
+                    ▶
+                </button>
+
+                <div>
+
+                    <div class="song-title">
+                        Soda Pop
+                    </div>
+
+                    <div class="song-artist">
+                        Saja Boys
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="song-number">
+                03
+            </div>
+
+        </div>
+
+
+        <div class="song">
+
+            <div class="song-left">
+
+                <button class="play">
+                    ▶
+                </button>
+
+                <div>
+
+                    <div class="song-title">
+                        Takedown
+                    </div>
+
+                    <div class="song-artist">
+                        HUNTR/X
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="song-number">
+                04
+            </div>
+
+        </div>
+
+
+        <div class="song">
+
+            <div class="song-left">
+
+                <button class="play">
+                    ▶
+                </button>
+
+                <div>
+
+                    <div class="song-title">
+                        Your Idol
+                    </div>
+
+                    <div class="song-artist">
+                        Saja Boys
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="song-number">
+                05
+            </div>
+
+        </div>
+
+
+        <div class="song">
+
+            <div class="song-left">
+
+                <button class="play">
+                    ▶
+                </button>
+
+                <div>
+
+                    <div class="song-title">
+                        What It Sounds Like
+                    </div>
+
+                    <div class="song-artist">
+                        HUNTR/X
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="song-number">
+                06
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SEARCH ================= -->
+
+<section>
+
+    <div class="section-heading">
+
+        <span>DATABASE</span>
+
+        <h2>Search The Universe</h2>
+
+        <p>
+            Search for characters, groups and topics.
+        </p>
+
+    </div>
+
+
+    <div class="search-container">
+
+        <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="🔎 Search Rumi, Mira, Zoey, Saja Boys..."
+        >
+
+
+        <div
+            class="search-results"
+            id="searchResults"
+        >
+
+            <div
+                class="search-card"
+                data-search="rumi leader huntrx vocalist"
+            >
+                <div class="emoji">
+                    👑
+                </div>
+
+                <h3>Rumi</h3>
+
+                <p>
+                    Leader of HUNTR/X.
+                </p>
+            </div>
+
+
+            <div
+                class="search-card"
+                data-search="mira huntrx member"
+            >
+                <div class="emoji">
+                    💜
+                </div>
+
+                <h3>Mira</h3>
+
+                <p>
+                    Member of HUNTR/X.
+                </p>
+            </div>
+
+
+            <div
+                class="search-card"
+                data-search="zoey huntrx member"
+            >
+                <div class="emoji">
+                    💙
+                </div>
+
+                <h3>Zoey</h3>
+
+                <p>
+                    Member of HUNTR/X.
+                </p>
+            </div>
+
+
+            <div
+                class="search-card"
+                data-search="saja boys demons rival group"
+            >
+                <div class="emoji">
+                    😈
+                </div>
+
+                <h3>Saja Boys</h3>
+
+                <p>
+                    Rival supernatural group.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= QUIZ ================= -->
+
+<section id="quiz">
+
+    <div class="section-heading">
+
+        <span>INTERACTIVE TEST</span>
+
+        <h2>Which Hunter Are You?</h2>
+
+        <p>
+            Answer four questions and discover your
+            HUNTR/X-style personality.
+        </p>
+
+    </div>
+
+
+    <div class="quiz">
+
+        <!-- QUESTION 1 -->
+
+        <div
+            class="question active"
+            data-question="1"
+        >
+
+            <div class="progress">
+
+                QUESTION 1 / 4
+
+                <div class="progress-bar">
+                    <div
+                        class="progress-fill"
+                        style="width:25%"
+                    ></div>
+                </div>
+
+            </div>
+
+            <h3>
+                What is your strongest quality?
+            </h3>
+
+            <div class="answer-grid">
+
+                <button
+                    class="answer"
+                    data-character="Rumi"
+                >
+                    👑 Leadership
+                </button>
+
+                <button
+                    class="answer"
+                    data-character="Mira"
+                >
+                    🎨 Creativity
+                </button>
+
+                <button
+                    class="answer"
+                    data-character="Zoey"
+                >
+                    ⚡ Energy
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUESTION 2 -->
+
+        <div
+            class="question"
+            data-question="2"
+        >
+
+            <div class="progress">
+
+                QUESTION 2 / 4
+
+                <div class="progress-bar">
+                    <div
+                        class="progress-fill"
+                        style="width:50%"
+                    ></div>
+                </div>
+
+            </div>
+
+            <h3>
+                Pick your stage style.
+            </h3>
+
+            <div class="answer-grid">
+
+                <button
+                    class="answer"
+                    data-character="Rumi"
+                >
+                    🔥 Powerful
+                </button>
+
+                <button
+                    class="answer"
+                    data-character="Mira"
+                >
+                    💜 Stylish
+                </button>
+
+                <button
+                    class="answer"
+                    data-character="Zoey"
+                >
+                    💙 Fun
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUESTION 3 -->
+
+        <div
+            class="question"
+            data-question="3"
+        >
+
+            <div class="progress">
+
+                QUESTION 3 / 4
+
+                <div class="progress-bar">
+                    <div
+                        class="progress-fill"
+                        style="width:75%"
+                    ></div>
+                </div>
+
+            </div>
+
+            <h3>
+                Your team is in trouble. What do you do?
+            </h3>
+
+            <div class="answer-grid">
+
+                <button
+                    class="answer"
+                    data-character="Rumi"
+                >
+                    🛡️ Take charge
+                </button>
+
+                <button
+                    class="answer"
+                    data-character="Mira"
+                >
+                    🧠 Make a strategy
+                </button>
+
+                <button
+                    class="answer"
+                    data-character="Zoey"
+                >
+                    ⚡ Jump into action
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUESTION 4 -->
+
+        <div
+            class="question"
+            data-question="4"
+        >
+
+            <div class="progress">
+
+                QUESTION 4 / 4
+
+                <div class="progress-bar">
+                    <div
+                        class="progress-fill"
+                        style="width:100%"
+                    ></div>
+                </div>
+
+            </div>
+
+            <h3>
+                Choose your weapon.
+            </h3>
+
+            <div class="answer-grid">
+
+                <button
+                    class="answer"
+                    data-character="Rumi"
+                >
+                    ⚔️ Legendary Sword
+                </button>
+
+                <button
+                    class="answer"
+                    data-character="Mira"
+                >
+                    💜 Magic Blades
+                </button>
+
+                <button
+                    class="answer"
+                    data-character="Zoey"
+                >
+                    ⚡ Energy Weapon
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <div
+            class="result"
+            id="quizResult"
+        >
+
+            <div
+                class="result-icon"
+                id="resultIcon"
+            >
+                👑
+            </div>
+
+            <h2 id="resultName">
+                Rumi
+            </h2>
+
+            <p id="resultText">
+                You have strong leadership energy.
+            </p>
+
+            <br>
+
+            <button
+                class="btn primary"
+                id="restartQuiz"
+            >
+                🔄 Take Again
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MODAL ================= -->
+
+<div
+    class="modal"
+    id="modal"
+>
+
+    <div class="modal-content">
+
+        <button
+            class="close"
+            id="closeModal"
+        >
+            ×
+        </button>
+
+        <h2 id="modalTitle">
+            Character
+        </h2>
+
+        <p id="modalText">
+            Details
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        ✦ KPOP DEMON HUNTERS FAN WEBSITE ✦
+    </p>
+
+    <p style="margin-top:10px;">
+        Created with
+        <strong>HTML + CSS + JavaScript</strong>
+    </p>
+
+    <p style="margin-top:10px;font-size:12px;">
+        Fan-made concept. Not an official Netflix website.
+    </p>
+
+</footer>
+
+
+<!-- BACK TO TOP -->
+
+<button
+    class="top"
+    id="topButton"
+>
+    ↑
+</button>
+
+
+<script>
+
+/* =========================================================
+   JAVASCRIPT
+   ========================================================= */
+
+
+/* ================= PARTICLES ================= */
+
+const particleContainer =
+    document.getElementById("particles");
+
+for(let i = 0; i < 100; i++) {
+
+    const particle =
+        document.createElement("div");
+
+    particle.className = "particle";
+
+    particle.style.left =
+        Math.random() * 100 + "%";
+
+    particle.style.animationDuration =
+        (5 + Math.random() * 10) + "s";
+
+    particle.style.animationDelay =
+        (Math.random() * 8) + "s";
+
+    particle.style.opacity =
+        Math.random();
+
+    particleContainer.appendChild(particle);
+}
+
+
+/* ================= CURSOR ================= */
+
+const cursor =
+    document.querySelector(".cursor");
+
+document.addEventListener("mousemove", function(event) {
+
+    cursor.style.left =
+        event.clientX + "px";
+
+    cursor.style.top =
+        event.clientY + "px";
+
+});
+
+
+/* ================= MOBILE MENU ================= */
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", function() {
+
+    navLinks.classList.toggle("open");
+
+});
+
+
+/* Close mobile menu after clicking */
+
+document.querySelectorAll(".nav-links a")
+.forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+        navLinks.classList.remove("open");
+
+    });
+
+});
+
+
+/* ================= SECRET BUTTON ================= */
+
+const secretBtn =
+    document.getElementById("secretBtn");
+
+const secretMessage =
+    document.getElementById("secretMessage");
+
+secretBtn.addEventListener("click", function() {
+
+    if(secretMessage.style.display === "none") {
+
+        secretMessage.style.display = "block";
+
+        secretBtn.textContent =
+            "😈 Secret Revealed";
+
+    } else {
+
+        secretMessage.style.display = "none";
+
+        secretBtn.textContent =
+            "🔮 Reveal The Secret";
+
+    }
+
+});
+
+
+/* ================= CHARACTER MODAL ================= */
+
+const modal =
+    document.getElementById("modal");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const modalText =
+    document.getElementById("modalText");
+
+const closeModal =
+    document.getElementById("closeModal");
+
+
+document.querySelectorAll(".detailsBtn")
+.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        const name =
+            this.getAttribute("data-name");
+
+        const information =
+            this.getAttribute("data-info");
+
+        modalTitle.textContent =
+            name;
+
+        modalText.textContent =
+            information;
+
+        modal.classList.add("show");
+
+    });
+
+});
+
+
+closeModal.addEventListener("click", function() {
+
+    modal.classList.remove("show");
+
+});
+
+
+modal.addEventListener("click", function(event) {
+
+    if(event.target === modal) {
+
+        modal.classList.remove("show");
+
+    }
+
+});
+
+
+/* ESCAPE CLOSE */
+
+document.addEventListener("keydown", function(event) {
+
+    if(event.key === "Escape") {
+
+        modal.classList.remove("show");
+
+    }
+
+});
+
+
+/* ================= MUSIC UI ================= */
+
+const playButtons =
+    document.querySelectorAll(".play");
+
+let currentlyPlaying = null;
+
+playButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        if(currentlyPlaying &&
+           currentlyPlaying !== this) {
+
+            currentlyPlaying.textContent = "▶";
+
+        }
+
+        if(this.textContent === "▶") {
+
+            this.textContent = "❚❚";
+
+            currentlyPlaying = this;
+
+        } else {
+
+            this.textContent = "▶";
+
+            currentlyPlaying = null;
+
+        }
+
+    });
+
+});
+
+
+/* ================= SEARCH ================= */
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const searchCards =
+    document.querySelectorAll(".search-card");
+
+searchInput.addEventListener("input", function() {
+
+    const searchValue =
+        this.value.toLowerCase().trim();
+
+    searchCards.forEach(function(card) {
+
+        const searchable =
+            card
+            .getAttribute("data-search")
+            .toLowerCase();
+
+        if(searchable.includes(searchValue)) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+});
+
+
+/* ================= QUIZ ================= */
+
+let currentQuestion = 1;
+
+let scores = {
+    Rumi: 0,
+    Mira: 0,
+    Zoey: 0
+};
+
+
+const questions =
+    document.querySelectorAll(".question");
+
+const result =
+    document.getElementById("quizResult");
+
+const resultName =
+    document.getElementById("resultName");
+
+const resultText =
+    document.getElementById("resultText");
+
+const resultIcon =
+    document.getElementById("resultIcon");
+
+
+document.querySelectorAll(".answer")
+.forEach(function(answer) {
+
+    answer.addEventListener("click", function() {
+
+        const character =
+            this.getAttribute("data-character");
+
+        scores[character]++;
+
+        goToNextQuestion();
+
+    });
+
+});
+
+
+function goToNextQuestion() {
+
+    const current =
+        document.querySelector(
+            '[data-question="' +
+            currentQuestion +
+            '"]'
+        );
+
+    current.classList.remove("active");
+
+    currentQuestion++;
+
+    if(currentQuestion <= 4) {
+
+        const next =
+            document.querySelector(
+                '[data-question="' +
+                currentQuestion +
+                '"]'
+            );
+
+        next.classList.add("active");
+
+    } else {
+
+        showQuizResult();
+
+    }
+
+}
+
+
+function showQuizResult() {
+
+    let winner = "Rumi";
+
+    if(scores.Mira > scores[winner]) {
+
+        winner = "Mira";
+
+    }
+
+    if(scores.Zoey > scores[winner]) {
+
+        winner = "Zoey";
+
+    }
+
+
+    const resultData = {
+
+        Rumi: {
+            icon: "👑",
+            text:
+            "You have natural leadership energy. You like taking responsibility, protecting your team and staying strong under pressure."
+        },
+
+        Mira: {
+            icon: "💜",
+            text:
+            "You are creative, stylish and thoughtful. You bring your own personality to everything you do."
+        },
+
+        Zoey: {
+            icon: "💙",
+            text:
+            "You are energetic, adventurous and fun. You bring excitement to the team and aren't afraid of action."
+        }
+
+    };
+
+
+    resultIcon.textContent =
+        resultData[winner].icon;
+
+    resultName.textContent =
+        "You are " + winner + "!";
+
+    resultText.textContent =
+        resultData[winner].text;
+
+    result.style.display = "block";
+
+}
+
+
+document.getElementById("restartQuiz")
+.addEventListener("click", function() {
+
+    currentQuestion = 1;
+
+    scores = {
+        Rumi: 0,
+        Mira: 0,
+        Zoey: 0
+    };
+
+
+    result.style.display = "none";
+
+
+    questions.forEach(function(question) {
+
+        question.classList.remove("active");
+
+    });
+
+
+    document
+        .querySelector('[data-question="1"]')
+        .classList.add("active");
+
+});
+
+
+/* ================= BACK TO TOP ================= */
+
+const topButton =
+    document.getElementById("topButton");
+
+
+window.addEventListener("scroll", function() {
+
+    if(window.scrollY > 600) {
+
+        topButton.classList.add("show");
+
+    } else {
+
+        topButton.classList.remove("show");
+
+    }
+
+});
+
+
+topButton.addEventListener("click", function() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+
+
+/* ================= SCROLL REVEAL ================= */
+
+const revealElements =
+    document.querySelectorAll(
+        ".story-card, .character, .song, .search-card, .stat"
+    );
+
+
+const revealObserver =
+    new IntersectionObserver(
+        function(entries) {
+
+            entries.forEach(function(entry) {
+
+                if(entry.isIntersecting) {
+
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform =
+                        "translateY(0)";
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .12
+        }
+    );
+
+
+revealElements.forEach(function(element) {
+
+    element.style.opacity = "0";
+
+    element.style.transform =
+        "translateY(25px)";
+
+    element.style.transition =
+        "opacity .7s ease, transform .7s ease";
+
+    revealObserver.observe(element);
+
+});
+
+
+/* ================= KEYBOARD SHORTCUT ================= */
+
+document.addEventListener("keydown", function(event) {
+
+    /* Press "/" to focus search */
+
+    if(event.key === "/" &&
+       document.activeElement.tagName !== "INPUT") {
+
+        event.preventDefault();
+
+        searchInput.focus();
+
+    }
+
+});
+
+
+/* ================= PAGE LOADED ================= */
+
+console.log(
+    "KPop Demon Hunters website loaded successfully!"
+);
+
+</script>
+
+</body>
+</html>
